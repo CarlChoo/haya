@@ -21,10 +21,10 @@ services:
         source: ${ENV_DIR}
         target: /env
       - type: bind
-        source: ./volumes/reth/data
+        source: ${RETHDATA_DIR}
         target: /rethdata
       - type: bind
-        source: ./volumes/reth/chaindata
+        source: ${CHAINDATA_DIR}
         target: /chaindata
 
   zkstack-apis:
