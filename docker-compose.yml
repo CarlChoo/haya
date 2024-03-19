@@ -19,7 +19,7 @@ services:
     volumes:
       - type: bind
         source: ${ENV_DIR}
-        target: /home/ubuntu/zksync-era/etc/env
+        target: /env
       - type: bind
         source: ./volumes/reth/data
         target: /rethdata
@@ -31,11 +31,11 @@ services:
     image: kedavra/haya-zk:v0.1
     command: ["--components", "http_api,ws_api"]
     env_file:
-      - ./etc/env/haya.env
+      - ${HAYA_ENV}
     volumes:
       - type: bind
         source: ${ENV_DIR}
-        target: /home/ubuntu/zksync-era/etc/env
+        target: /env
     environment:
       ZKSYNC_HOME: /
       FRI_PROVER_GATEWAY_API_URL: http://zkstack-core:3320
